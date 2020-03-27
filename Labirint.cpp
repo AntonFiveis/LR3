@@ -26,6 +26,7 @@ Labirint::Labirint(char ans, Point start) {
 	
 }
 
+
 void Labirint::dejikstra(Point start) {
 	distance[start.y][start.x] = 0;
 	if (start.x + 1 < labirint[start.y].length() && labirint[start.y][start.x + 1] == ' ') {

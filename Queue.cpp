@@ -11,3 +11,4 @@ T Queue<T>::getFirst() {
 		return NULL;
 	}
 }
+

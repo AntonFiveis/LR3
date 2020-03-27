@@ -9,6 +9,7 @@ struct Point {
 	int y;
 };
 
+
 class Labirint {
 private:
 	int n;
