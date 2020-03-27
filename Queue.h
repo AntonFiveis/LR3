@@ -1,14 +1,16 @@
 #pragma once
 #include <vector>
-template<class T>
+struct Point {
+	int x;
+	int y;
+};
 class Queue
 {
 private:
-	std::vector<T> queue;
+	std::vector<Point> queue;
 public:
-	bool isEmpty() { return queue.empty(); }
-	T getFirst();
-	void push(T el) {queue.push_back(el)};
+	bool isEmpty() { return queue.size()==0; }
+	Point getFirst();
+	void push(Point el) { queue.push_back(el); };
 };
-
 
