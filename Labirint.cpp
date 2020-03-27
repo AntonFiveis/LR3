@@ -88,6 +88,16 @@ void Labirint::FindAndoutputWayToPoint(Point end) {
 	}
 	else {
 		outputWay();
+		clearWay();
+	}
+}
 
+void Labirint::clearWay() {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < labirint[i].length(); j++) {
+			if (labirint[i][j] != ' ' && labirint[i][j] != 'X') {
+				labirint[i][j] = ' ';
+			}
+		}
 	}
 }

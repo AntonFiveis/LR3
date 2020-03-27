@@ -4,5 +4,5 @@ using namespace std;
 int main()
 {
     Labirint lab('f', { 1,5 });
-    lab.outputDist();
+    lab.outputWayToPoint({6,1});
 }
