@@ -3,7 +3,11 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#define INF 1000000
+
+struct Point {
+	int x;
+	int y;
+};
 
 class Labirint {
 private:
@@ -11,12 +15,13 @@ private:
 	std::vector<std::string> labirint;
 	std::vector<std::vector<Point>> parent;
 	std::vector<std::vector<int>> distance;
-	Queue  queue;
+	std::vector<bool> visited;
+	Queue < Point> queue;
 	void dejikstra(Point);
 	void inputLabirint(std::istream&);
 public:
 	Labirint(char,Point);
 
-	void outputDist();
-	~Labirint() {};
+	
+	~Labirint();
 };

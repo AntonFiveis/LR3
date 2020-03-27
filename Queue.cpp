@@ -1,13 +1,13 @@
 #include "Queue.h"
 using namespace std;
-
-Point Queue::getFirst() {
+template<class T>
+T Queue<T>::getFirst() {
 	if (!isEmpty()) {
-		Point tmp = queue[0];
+		T tmp = queue[0];
 		queue.erase(queue.begin());
 		return tmp;
 	}
 	else {
-		return {NULL,NULL};
+		return NULL;
 	}
 }
