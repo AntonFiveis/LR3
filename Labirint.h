@@ -14,9 +14,10 @@ private:
 	Queue  queue;
 	void dejikstra(Point);
 	void inputLabirint(std::istream&);
+	void outputWay();
 public:
 	Labirint(char,Point);
-
-	void outputDist();
+	void FindAndoutputWayToPoint(Point);
+	void outputWay();
 	~Labirint() {};
 };

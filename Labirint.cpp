@@ -5,6 +5,7 @@ using namespace std;
 
 void Labirint::inputLabirint(istream& is=cin) {
 	is >> n;
+
 	labirint.resize(n);
 	distance.resize(n, vector<int>(n,INF));
 	is.get();
@@ -61,11 +62,32 @@ void Labirint::dejikstra(Point start) {
 	}
 	
 }
-void Labirint::outputDist() {
+void Labirint::outputWay() {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			cout << setw(10) << distance[i][j];
+			cout << setw(3) << labirint[i][j];
 		}
 		cout << endl;
+	}
+}
+void Labirint::FindAndoutputWayToPoint(Point end) {
+	labirint[end.y][end.x] = distance[end.y ][end.x] + 'a';
+	if (distance[end.y + 1][end.x]+1 == distance[end.y][end.x]) {
+		
+		FindAndoutputWayToPoint({ end.x,end.y +1 });
+	}
+	else if (distance[end.y - 1][end.x]+1 == distance[end.y][end.x]) {
+		FindAndoutputWayToPoint({ end.x,end.y - 1 });
+
+	}
+	else if (distance[end.y][end.x+1] + 1 == distance[end.y][end.x]) {
+		FindAndoutputWayToPoint({ end.x+1,end.y });
+	}
+	else if (distance[end.y][end.x-1] + 1 == distance[end.y][end.x]) {
+		FindAndoutputWayToPoint({ end.x-1,end.y });
+	}
+	else {
+		outputWay();
+
 	}
 }
