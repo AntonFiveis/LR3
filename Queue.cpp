@@ -26,17 +26,14 @@ double dist(Point el, Point end) {
 }
 void PriorityQueue::push(Point el, Point end) {
 	double distance = dist(el, end);
-
 	int i;
-	int x = queue.size();
-	for (i = 0; i < x; i++) {
-		if (distance < dist(queue[i], end)) {
-			continue;
-		}
-		 queue.insert(queue.begin() + i, el); 
-		 break;
+	if (!isEmpty()) {
+		for (i = 0;i<queue.size()&& dist(queue[i], end) < distance; i++);
+		if (i == queue.size())
+			queue.push_back(el);
+		else
+			queue.insert(queue.begin() + i, el);
 	}
-	if (i == queue.size()) {
+	else
 		queue.push_back(el);
-	}
 }

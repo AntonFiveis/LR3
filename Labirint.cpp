@@ -107,7 +107,7 @@ void Labirint::AStar(Point start,Point end) {
 		}
 	}
 
-	if (!queue.isEmpty()) {
+	if (!queue1.isEmpty()) {
 		Point tmp = queue1.getFirst();
 		AStar(tmp,end);
 	}
@@ -116,7 +116,7 @@ void Labirint::AStar(Point start,Point end) {
 void Labirint::outputWay() {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			cout << setw(8) << distance[i][j];
+			cout << setw(3) << labirint[i][j];
 		}
 		cout << endl;
 	}

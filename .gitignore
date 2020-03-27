@@ -3,3 +3,7 @@ LR3.sln
 LR3.vcxproj
 LR3.vcxproj.filters
 LR3.vcxproj.user
+Debug
+LR3.APS
+LR3.rc
+resource.h
