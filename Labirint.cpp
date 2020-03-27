@@ -28,6 +28,21 @@ Labirint::Labirint(char ans, Point start) {
 	dejikstra(start);
 	
 }
+Labirint::Labirint(char ans, Point start,Point end) {
+
+	if (ans == 'f') {
+		string tmp;
+		getline(cin, tmp);
+		ifstream inF(tmp);
+		inputLabirint(inF);
+	}
+	else {
+		inputLabirint();
+	}
+	distance[start.y][start.x] = 0;
+	AStar(start, end);
+
+}
 
 void Labirint::dejikstra(Point start) {
 	if (start.x + 1 < labirint[start.y].length() && labirint[start.y][start.x + 1] == ' ') {
@@ -62,10 +77,46 @@ void Labirint::dejikstra(Point start) {
 	}
 	
 }
+void Labirint::AStar(Point start,Point end) {
+	if (start.x == end.x&&start.y==end.y) {
+		return;
+	}
+	if (start.x + 1 < labirint[start.y].length() && labirint[start.y][start.x + 1] == ' ') {
+		if (distance[start.y][start.x + 1] > distance[start.y][start.x] + 1) {
+			queue1.push({ start.x + 1,start.y },end);
+			distance[start.y][start.x + 1] = distance[start.y][start.x] + 1;
+		}
+	}
+	if (start.y + 1 < n && labirint[start.y + 1][start.x] == ' ') {
+		if (distance[start.y + 1][start.x] > distance[start.y][start.x] + 1) {
+			queue1.push({ start.x ,start.y + 1 },end);
+			distance[start.y + 1][start.x] = distance[start.y][start.x] + 1;
+		}
+	}
+	if (start.x - 1 >= 0 && labirint[start.y][start.x - 1] == ' ') {
+		if (distance[start.y][start.x - 1] > distance[start.y][start.x] + 1) {
+			queue1.push({ start.x - 1,start.y },end);
+			distance[start.y][start.x - 1] = distance[start.y][start.x] + 1;
+		}
+
+	}
+	if (start.y - 1 >= 0 && labirint[start.y - 1][start.x] == ' ') {
+		if (distance[start.y - 1][start.x] > distance[start.y][start.x] + 1) {
+			queue1.push({ start.x,start.y - 1 },end);
+			distance[start.y - 1][start.x] = distance[start.y][start.x] + 1;
+		}
+	}
+
+	if (!queue.isEmpty()) {
+		Point tmp = queue1.getFirst();
+		AStar(tmp,end);
+	}
+
+}
 void Labirint::outputWay() {
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			cout << setw(3) << labirint[i][j];
+			cout << setw(8) << distance[i][j];
 		}
 		cout << endl;
 	}

@@ -12,12 +12,16 @@ private:
 	std::vector<std::vector<Point>> parent;
 	std::vector<std::vector<int>> distance;
 	Queue  queue;
+	PriorityQueue queue1;
 	void dejikstra(Point);
 	void inputLabirint(std::istream&);
 	void outputWay();
+	void clearWay();
+	void AStar(Point start, Point end);
 public:
 	Labirint(char,Point);
+	Labirint(char, Point, Point);
 	void FindAndoutputWayToPoint(Point);
-	void outputWay();
+
 	~Labirint() {};
 };
