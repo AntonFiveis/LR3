@@ -13,35 +13,19 @@ void Labirint::inputLabirint(istream& is=cin) {
 		getline(is, labirint[i]);
 	}
 }
-Labirint::Labirint(char ans, Point start) {
 
-	if (ans == 'f') {
-		string tmp;
-		getline(cin,tmp);
-		ifstream inF(tmp);
-		inputLabirint(inF);
-	}
-	else {
-		inputLabirint();
-	}
-	distance[start.y][start.x] = 0;
-	dejikstra(start);
-	
-}
-Labirint::Labirint(char ans, Point start,Point end) {
+Labirint::Labirint(char ans, Point start, Point end) {
 
-	if (ans == 'f') {
-		string tmp;
-		getline(cin, tmp);
-		ifstream inF(tmp);
-		inputLabirint(inF);
-	}
-	else {
-		inputLabirint();
-	}
+	string tmp;
+	getline(cin, tmp);
+	ifstream inF(tmp);
+	inputLabirint(inF);
+
 	distance[start.y][start.x] = 0;
+	if(ans=='A')
 	AStar(start, end);
-
+	else
+	dejikstra(start);
 }
 
 void Labirint::dejikstra(Point start) {

@@ -19,7 +19,6 @@ private:
 	void clearWay();
 	void AStar(Point start, Point end);
 public:
-	Labirint(char,Point);
 	Labirint(char, Point, Point);
 	void FindAndoutputWayToPoint(Point);
 
