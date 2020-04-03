@@ -8,6 +8,7 @@
 class Labirint {
 private:
 	int n;
+	int m;
 	std::vector<std::string> labirint;
 	std::vector<std::vector<Point>> parent;
 	std::vector<std::vector<int>> distance;
@@ -21,6 +22,6 @@ private:
 public:
 	Labirint(char, Point, Point);
 	void FindAndoutputWayToPoint(Point);
-
+	void outputDistance();
 	~Labirint() {};
 };

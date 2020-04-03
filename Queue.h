@@ -22,4 +22,5 @@ public:
 	Point getFirst();
 	void push(Point el,Point end);
 };
+double dist(Point, Point);
 

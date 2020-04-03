@@ -3,6 +3,7 @@
 using namespace std;
 int main()
 {
+    cout << "input start and end Points:";
     int y1, y2, x1, x2;
     cin >> x1 >> y1 >> x2 >> y2;
     cout << "Dejikstra(d) or A*(A):";
